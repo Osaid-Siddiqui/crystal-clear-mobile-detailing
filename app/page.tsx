@@ -259,6 +259,9 @@ export default function CrystalClearDetailing() {
       Object.entries(formData).forEach(([key, value]) => {
         formDataToSend.append(key, String(value))
       })
+      if (selectedAddOns.length > 0) {
+        formDataToSend.append("addOns", selectedAddOns.join(", "))
+      }
       // Add a subject so the email is easier to identify
       formDataToSend.append("_subject", `Contact from ${formData.name || "website"}`)
 
