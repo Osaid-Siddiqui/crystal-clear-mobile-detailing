@@ -134,19 +134,19 @@ export default function CrystalClearDetailing() {
 
   const pricingPlans = [
     {
-      name: "Basic Detail (Essential Clean)",
-      price: "$99",
-      features: ["Exterior wash & wax", "Interior vacuum", "Window cleaning", "Tire shine"],
+      name: "Basic detail (interior only)",
+      price: "$150",
+      features: ["Interior vacuum", "Window cleaning", "Panel wipe down", "Interior detailing"],
     },
     {
-      name: "Premium Detail (Luxury Finish)",
-      price: "$199",
+      name: "Premium detail (full inside and out)",
+      price: "$250",
       features: [
         "Everything in Basic",
-        "Clay bar treatment",
+        "Exterior wash & wax",
         "Interior deep clean",
-        "Engine bay cleaning",
         "Paint sealant",
+        "Tire shine",
       ],
       popular: true,
     },
@@ -155,12 +155,24 @@ export default function CrystalClearDetailing() {
       price: "$350",
       features: [
         "Everything in Premium",
-        "Paint correction",
+        "Clay bar",
+        "3 month sealant",
+        "Tire shine",
+        "Interior UV protectant",
         "Full detail",
         "Leather conditioning",
-        "Headlight restoration",
       ],
     },
+  ]
+
+  const addOns = [
+    { name: "1 step paint correction", price: 150 },
+    { name: "Headlight restoration", price: 50 },
+    { name: "Pet hair removal", price: 25 },
+    { name: "Claybar", price: 50 },
+    { name: "Engine bay cleaning", price: 50 },
+    { name: "Stain removal", price: 50 },
+    { name: "3 year ceramic coating", price: 700 },
   ]
 
   useEffect(() => {
