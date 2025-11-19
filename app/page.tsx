@@ -680,7 +680,7 @@ export default function CrystalClearDetailing() {
             <p className="text-[#e6c0dc] text-lg">Choose the perfect package for your vehicle</p>
           </motion.div>
 
-          <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+          <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto mb-16">
             {pricingPlans.map((plan, index) => (
               <motion.div
                 key={index}
@@ -730,6 +730,38 @@ export default function CrystalClearDetailing() {
               </motion.div>
             ))}
           </div>
+
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="mt-16 pt-16 border-t border-[#634277]"
+          >
+            <h3 className="text-3xl font-bold mb-8 text-center bg-gradient-to-r from-[#9630b7] to-[#cd507e] bg-clip-text text-transparent">
+              Additional Add-ons
+            </h3>
+            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-4 max-w-6xl mx-auto">
+              {addOns.map((addOn, index) => (
+                <motion.div
+                  key={index}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.5, delay: index * 0.05 }}
+                >
+                  <Card className="bg-[#421272]/40 border-[#634277] hover:border-[#ac73e2] transition-all duration-300">
+                    <CardContent className="pt-6">
+                      <h4 className="text-white font-semibold mb-2">{addOn.name}</h4>
+                      <p className="text-3xl font-bold bg-gradient-to-r from-[#9630b7] to-[#cd507e] bg-clip-text text-transparent">
+                        ${addOn.price}
+                      </p>
+                    </CardContent>
+                  </Card>
+                </motion.div>
+              ))}
+            </div>
+          </motion.div>
         </div>
       </section>
 
