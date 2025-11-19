@@ -216,6 +216,8 @@ export default function CrystalClearDetailing() {
     message: "",
   })
 
+  const [selectedAddOns, setSelectedAddOns] = useState<string[]>([])
+
   const [errors, setErrors] = useState({
     name: "",
     phone: "",
