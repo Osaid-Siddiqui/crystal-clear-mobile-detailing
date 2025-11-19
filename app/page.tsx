@@ -134,19 +134,19 @@ export default function CrystalClearDetailing() {
 
   const pricingPlans = [
     {
-      name: "Basic Detail (Essential Clean)",
-      price: "$99",
-      features: ["Exterior wash & wax", "Interior vacuum", "Window cleaning", "Tire shine"],
+      name: "Basic detail (interior only)",
+      price: "$150",
+      features: ["Interior vacuum", "Window cleaning", "Panel wipe down", "Interior detailing"],
     },
     {
-      name: "Premium Detail (Luxury Finish)",
-      price: "$199",
+      name: "Premium detail (full inside and out)",
+      price: "$250",
       features: [
         "Everything in Basic",
-        "Clay bar treatment",
+        "Exterior wash & wax",
         "Interior deep clean",
-        "Engine bay cleaning",
         "Paint sealant",
+        "Tire shine",
       ],
       popular: true,
     },
@@ -155,12 +155,24 @@ export default function CrystalClearDetailing() {
       price: "$350",
       features: [
         "Everything in Premium",
-        "Paint correction",
+        "Clay bar",
+        "3 month sealant",
+        "Tire shine",
+        "Interior UV protectant",
         "Full detail",
         "Leather conditioning",
-        "Headlight restoration",
       ],
     },
+  ]
+
+  const addOns = [
+    { name: "1 step paint correction", price: 150 },
+    { name: "Headlight restoration", price: 50 },
+    { name: "Pet hair removal", price: 25 },
+    { name: "Claybar", price: 50 },
+    { name: "Engine bay cleaning", price: 50 },
+    { name: "Stain removal", price: 50 },
+    { name: "3 year ceramic coating", price: 700 },
   ]
 
   useEffect(() => {
@@ -204,6 +216,8 @@ export default function CrystalClearDetailing() {
     message: "",
   })
 
+  const [selectedAddOns, setSelectedAddOns] = useState<string[]>([])
+
   const [errors, setErrors] = useState({
     name: "",
     phone: "",
@@ -245,6 +259,9 @@ export default function CrystalClearDetailing() {
       Object.entries(formData).forEach(([key, value]) => {
         formDataToSend.append(key, String(value))
       })
+      if (selectedAddOns.length > 0) {
+        formDataToSend.append("addOns", selectedAddOns.join(", "))
+      }
       // Add a subject so the email is easier to identify
       formDataToSend.append("_subject", `Contact from ${formData.name || "website"}`)
 
@@ -268,6 +285,7 @@ export default function CrystalClearDetailing() {
         setSubmitStatus("success")
         setFormData({ name: "", phone: "", package: "", message: "" })
         setSelectedPackage(null)
+        setSelectedAddOns([])
       } else {
         // If Formspree returns validation errors, map them to our UI
         if (body && body.errors && Array.isArray(body.errors)) {
@@ -662,7 +680,7 @@ export default function CrystalClearDetailing() {
             <p className="text-[#e6c0dc] text-lg">Choose the perfect package for your vehicle</p>
           </motion.div>
 
-          <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+          <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto mb-16">
             {pricingPlans.map((plan, index) => (
               <motion.div
                 key={index}
@@ -712,6 +730,38 @@ export default function CrystalClearDetailing() {
               </motion.div>
             ))}
           </div>
+
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="mt-16 pt-16 border-t border-[#634277]"
+          >
+            <h3 className="text-3xl font-bold mb-8 text-center bg-gradient-to-r from-[#9630b7] to-[#cd507e] bg-clip-text text-transparent">
+              Additional Add-ons
+            </h3>
+            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-4 max-w-6xl mx-auto">
+              {addOns.map((addOn, index) => (
+                <motion.div
+                  key={index}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.5, delay: index * 0.05 }}
+                >
+                  <Card className="bg-[#421272]/40 border-[#634277] hover:border-[#ac73e2] transition-all duration-300">
+                    <CardContent className="pt-6">
+                      <h4 className="text-white font-semibold mb-2">{addOn.name}</h4>
+                      <p className="text-3xl font-bold bg-gradient-to-r from-[#9630b7] to-[#cd507e] bg-clip-text text-transparent">
+                        ${addOn.price}
+                      </p>
+                    </CardContent>
+                  </Card>
+                </motion.div>
+              ))}
+            </div>
+          </motion.div>
         </div>
       </section>
 
@@ -785,6 +835,32 @@ export default function CrystalClearDetailing() {
                         </SelectContent>
                       </Select>
                       {errors.package && <p className="text-red-400 text-sm mt-1">{errors.package}</p>}
+                    </div>
+
+                    <div className="space-y-3">
+                      <label className="text-[#e6c0dc] font-medium block">Additional Add-ons</label>
+                      <div className="space-y-2 max-h-48 overflow-y-auto">
+                        {addOns.map((addOn) => (
+                          <label key={addOn.name} className="flex items-center gap-3 cursor-pointer group">
+                            <input
+                              type="checkbox"
+                              checked={selectedAddOns.includes(addOn.name)}
+                              onChange={(e) => {
+                                if (e.target.checked) {
+                                  setSelectedAddOns([...selectedAddOns, addOn.name])
+                                } else {
+                                  setSelectedAddOns(selectedAddOns.filter((item) => item !== addOn.name))
+                                }
+                              }}
+                              className="w-4 h-4 rounded border-[#634277] bg-[#1a0723] text-[#ac73e2] cursor-pointer accent-[#ac73e2]"
+                            />
+                            <span className="text-[#e6c0dc] group-hover:text-[#ac73e2] transition-colors flex-1 text-sm">
+                              {addOn.name}
+                            </span>
+                            <span className="text-[#ac73e2] font-semibold text-sm">${addOn.price}</span>
+                          </label>
+                        ))}
+                      </div>
                     </div>
 
                     <div>
