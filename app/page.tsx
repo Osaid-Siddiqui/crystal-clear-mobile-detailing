@@ -837,6 +837,32 @@ export default function CrystalClearDetailing() {
                       {errors.package && <p className="text-red-400 text-sm mt-1">{errors.package}</p>}
                     </div>
 
+                    <div className="space-y-3">
+                      <label className="text-[#e6c0dc] font-medium block">Additional Add-ons</label>
+                      <div className="space-y-2 max-h-48 overflow-y-auto">
+                        {addOns.map((addOn) => (
+                          <label key={addOn.name} className="flex items-center gap-3 cursor-pointer group">
+                            <input
+                              type="checkbox"
+                              checked={selectedAddOns.includes(addOn.name)}
+                              onChange={(e) => {
+                                if (e.target.checked) {
+                                  setSelectedAddOns([...selectedAddOns, addOn.name])
+                                } else {
+                                  setSelectedAddOns(selectedAddOns.filter((item) => item !== addOn.name))
+                                }
+                              }}
+                              className="w-4 h-4 rounded border-[#634277] bg-[#1a0723] text-[#ac73e2] cursor-pointer accent-[#ac73e2]"
+                            />
+                            <span className="text-[#e6c0dc] group-hover:text-[#ac73e2] transition-colors flex-1 text-sm">
+                              {addOn.name}
+                            </span>
+                            <span className="text-[#ac73e2] font-semibold text-sm">${addOn.price}</span>
+                          </label>
+                        ))}
+                      </div>
+                    </div>
+
                     <div>
                       <Input
                         type="tel"
