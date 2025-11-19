@@ -285,6 +285,7 @@ export default function CrystalClearDetailing() {
         setSubmitStatus("success")
         setFormData({ name: "", phone: "", package: "", message: "" })
         setSelectedPackage(null)
+        setSelectedAddOns([])
       } else {
         // If Formspree returns validation errors, map them to our UI
         if (body && body.errors && Array.isArray(body.errors)) {
