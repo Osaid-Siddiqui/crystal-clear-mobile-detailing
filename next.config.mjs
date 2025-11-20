@@ -10,7 +10,7 @@ const nextConfig = {
     unoptimized: true,
   },
   experimental: {
-    allowedDevOrigins: ['*.fly.dev'],
+    allowedDevOrigins: ['*.fly.dev', 'localhost', '127.0.0.1'],
   },
 }
 
