@@ -9,9 +9,6 @@ const nextConfig = {
   images: {
     unoptimized: true,
   },
-  experimental: {
-    allowedDevOrigins: ['*.fly.dev', 'localhost', '127.0.0.1'],
-  },
 }
 
 export default nextConfig
