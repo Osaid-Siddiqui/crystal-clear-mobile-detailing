@@ -268,7 +268,7 @@ export default function CrystalClearLanding() {
           <div className="grid md:grid-cols-4 gap-6 max-w-5xl mx-auto">
             {[
               {
-                icon: <Spray className="w-8 h-8 text-[#9630b7]" />,
+                icon: <Droplets className="w-8 h-8 text-[#9630b7]" />,
                 title: "Professional Equipment",
                 description: "State-of-the-art detailing tools and premium products",
               },
