@@ -184,124 +184,148 @@ export default function CrystalClearLanding() {
         </div>
       </motion.header>
 
-      {/* Hero Section */}
-      <section className="relative min-h-[90vh] flex items-center justify-center pt-20 pb-20 overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-[#421272] via-[#1a0723] to-[#634277]" />
+      {/* Professional Landing Page Hero */}
+      <section className="relative overflow-hidden bg-white pt-32 pb-12">
+        <div className="container mx-auto px-4">
+          <div className="grid md:grid-cols-2 gap-8 items-center">
+            {/* Left Side - Hero Image */}
+            <motion.div
+              initial={{ opacity: 0, x: -30 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.8 }}
+              className="relative aspect-video rounded-xl overflow-hidden shadow-xl border border-gray-100"
+            >
+              <Image
+                src="https://images.pexels.com/photos/6872601/pexels-photo-6872601.jpeg"
+                alt="Professional car detailing service"
+                fill
+                className="object-cover"
+              />
+            </motion.div>
 
-        {/* Animated background stars */}
-        {[...Array(20)].map((_, i) => (
-          <motion.div
-            key={i}
-            className="absolute w-1 h-1 bg-[#ac73e2] rounded-full"
-            style={{
-              left: `${Math.random() * 100}%`,
-              top: `${Math.random() * 100}%`,
-            }}
-            animate={{ opacity: [0.2, 1, 0.2], scale: [1, 1.5, 1] }}
-            transition={{
-              duration: 2 + Math.random() * 2,
-              repeat: Number.POSITIVE_INFINITY,
-              delay: Math.random() * 2,
-            }}
-          />
-        ))}
-
-        <div className="container mx-auto px-4 relative z-10 text-center">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            className="mb-8"
-          >
-            <div className="inline-block mb-6 px-4 py-2 bg-[#9630b7]/20 border border-[#ac73e2] rounded-full">
-              <span className="text-[#ac73e2] font-semibold text-sm flex items-center gap-2">
-                <Zap className="w-4 h-4" /> Premium Mobile Auto Detailing
-              </span>
-            </div>
-          </motion.div>
-
-          <motion.h1
-            className="text-5xl md:text-7xl font-black mb-6 bg-gradient-to-r from-[#9630b7] via-[#b13f9e] to-[#cd507e] bg-clip-text text-transparent leading-tight"
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.1 }}
-          >
-            Crystal Clear Auto Detailing: Premium Mobile Shine, Delivered to Your Door
-          </motion.h1>
-
-          <motion.p
-            className="text-lg md:text-2xl text-[#e6c0dc] mb-8 max-w-3xl mx-auto leading-relaxed"
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.2 }}
-          >
-            Professional interior/exterior detailing, paint protection, and more—using the finest products for that showroom finish. No shop visits—just us at your location for hassle-free luxury.
-          </motion.p>
-
-          <motion.div
-            className="flex flex-col sm:flex-row gap-4 justify-center mb-12"
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.3 }}
-          >
-            <a href="#contact-form">
-              <Button
-                size="lg"
-                className="bg-gradient-to-r from-[#9630b7] to-[#b13f9e] hover:from-[#8021d7] hover:to-[#cd507e] text-white border-0 font-bold text-lg px-8 h-auto py-4"
-              >
-                Book Now <ChevronRight className="w-5 h-5 ml-2" />
-              </Button>
-            </a>
-            <a href="#pricing">
-              <Button
-                size="lg"
-                variant="outline"
-                className="border-[#ac73e2] text-[#ac73e2] hover:bg-[#ac73e2] hover:text-[#1a0723] font-bold text-lg px-8 h-auto py-4"
-              >
-                View Pricing <ChevronRight className="w-5 h-5 ml-2" />
-              </Button>
-            </a>
-          </motion.div>
-
-          {/* Trust indicators */}
-          <motion.div
-            initial={{ opacity: 0, scale: 0.9 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.8, delay: 0.4 }}
-            className="inline-block"
-          >
-            <div className="flex items-center gap-8 bg-[#421272]/40 border border-[#634277] rounded-full px-8 py-4 backdrop-blur-sm flex-wrap justify-center">
-              <div className="flex flex-col items-center">
-                <p className="text-2xl font-bold text-[#ac73e2]">500+</p>
-                <p className="text-sm text-[#e6c0dc]">Happy Customers</p>
+            {/* Right Side - Content */}
+            <motion.div
+              initial={{ opacity: 0, x: 30 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.8, delay: 0.2 }}
+              className="space-y-6"
+            >
+              <div>
+                <h1 className="text-4xl md:text-5xl font-bold text-gray-900 leading-tight mb-4">
+                  Discover how Crystal Clear can help you
+                </h1>
+                <a href="#contact-form">
+                  <Button className="bg-gradient-to-r from-[#9630b7] to-[#7c2887] hover:from-[#8021d7] hover:to-[#6b2276] text-white border-0 font-semibold">
+                    Get a Free Quote
+                  </Button>
+                </a>
               </div>
-              <div className="w-px h-8 bg-[#634277]" />
-              <div className="flex flex-col items-center">
-                <p className="text-2xl font-bold text-[#ac73e2]">10+</p>
-                <p className="text-sm text-[#e6c0dc]">Years Experience</p>
+
+              <div className="text-gray-600 text-sm space-y-2">
+                <p>*No obligation. Free quote on all services.</p>
+                <a href="/page" className="text-[#9630b7] hover:text-[#7c2887] font-semibold transition-colors inline-flex items-center gap-1">
+                  View full website <ChevronRight className="w-4 h-4" />
+                </a>
               </div>
-              <div className="w-px h-8 bg-[#634277]" />
-              <div className="flex flex-col items-center">
-                <p className="text-2xl font-bold text-[#ac73e2]">100%</p>
-                <p className="text-sm text-[#e6c0dc]">Satisfaction</p>
-              </div>
-            </div>
-          </motion.div>
+            </motion.div>
+          </div>
         </div>
 
-        {/* Scroll indicator */}
+        {/* Tab Navigation */}
         <motion.div
-          className="absolute bottom-10 left-1/2 -translate-x-1/2"
-          animate={{ y: [0, 10, 0] }}
-          transition={{ duration: 2, repeat: Number.POSITIVE_INFINITY }}
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.4 }}
+          className="border-b border-gray-200 mt-16 mb-12"
         >
-          <div className="w-6 h-10 border-2 border-[#ac73e2] rounded-full flex items-start justify-center p-2">
-            <motion.div
-              className="w-1 h-2 bg-[#ac73e2] rounded-full"
-              animate={{ y: [0, 12, 0] }}
-              transition={{ duration: 2, repeat: Number.POSITIVE_INFINITY }}
-            />
+          <div className="container mx-auto px-4">
+            <div className="flex gap-8">
+              <button className="pb-4 px-4 border-b-2 border-[#9630b7] text-gray-900 font-semibold hover:text-[#9630b7] transition-colors">
+                Premium Detailing
+              </button>
+              <button className="pb-4 px-4 text-gray-500 font-semibold hover:text-gray-900 transition-colors border-b-2 border-transparent">
+                Professional Services
+              </button>
+            </div>
           </div>
+        </motion.div>
+
+        {/* Why Choose Section */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className="container mx-auto px-4"
+        >
+          <div className="text-center mb-12">
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-2">
+              Why choose Crystal Clear?
+            </h2>
+            <div className="w-16 h-1 bg-gradient-to-r from-[#9630b7] to-[#cd507e] mx-auto"></div>
+          </div>
+
+          <div className="grid md:grid-cols-4 gap-6 max-w-5xl mx-auto">
+            {[
+              {
+                icon: <Spray className="w-8 h-8 text-[#9630b7]" />,
+                title: "Professional Equipment",
+                description: "State-of-the-art detailing tools and premium products",
+              },
+              {
+                icon: <Car className="w-8 h-8 text-[#9630b7]" />,
+                title: "Mobile Service",
+                description: "We come to you - no hassle, maximum convenience",
+              },
+              {
+                icon: <Sparkles className="w-8 h-8 text-[#9630b7]" />,
+                title: "Premium Results",
+                description: "Showroom finish quality on every vehicle",
+              },
+              {
+                icon: <Award className="w-8 h-8 text-[#9630b7]" />,
+                title: "100% Guarantee",
+                description: "Complete satisfaction or your money back",
+              },
+            ].map((feature, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6, delay: index * 0.1 }}
+                className="text-center p-4"
+              >
+                <div className="flex justify-center mb-4">{feature.icon}</div>
+                <h3 className="text-lg font-bold text-gray-900 mb-2">{feature.title}</h3>
+                <p className="text-gray-600 text-sm leading-relaxed">{feature.description}</p>
+              </motion.div>
+            ))}
+          </div>
+        </motion.div>
+
+        {/* Divider */}
+        <div className="border-t border-gray-200 mt-16 pt-12"></div>
+
+        {/* View Full Website CTA */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className="container mx-auto px-4 text-center"
+        >
+          <p className="text-gray-600 mb-6 text-lg">
+            Explore our full range of services, pricing, testimonials, and gallery
+          </p>
+          <a href="/page">
+            <Button
+              variant="outline"
+              className="border-[#9630b7] text-[#9630b7] hover:bg-[#9630b7] hover:text-white font-semibold transition-colors"
+            >
+              View Full Website <ChevronRight className="w-4 h-4 ml-2" />
+            </Button>
+          </a>
         </motion.div>
       </section>
 
