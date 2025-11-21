@@ -333,146 +333,97 @@ export default function CrystalClearDetailing() {
       </motion.nav>
 
       {/* Hero Section */}
-      <section id="home" className="relative overflow-hidden bg-white pt-32 pb-12">
-        <div className="container mx-auto px-4">
-          <div className="grid md:grid-cols-2 gap-8 items-center">
-            {/* Left Side - Hero Image */}
-            <motion.div
-              initial={{ opacity: 0, x: -30 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.8 }}
-              className="relative aspect-video rounded-lg overflow-hidden shadow-xl"
-            >
-              <Image
-                src="https://images.pexels.com/photos/6872601/pexels-photo-6872601.jpeg"
-                alt="Professional car detailing service"
-                fill
-                className="object-cover"
-              />
-            </motion.div>
+      <section id="home" className="min-h-screen flex items-center justify-center relative overflow-hidden pt-20">
+        <div className="media-bg media-bg--home" aria-hidden="true" />
+        <div className="absolute inset-0 bg-gradient-to-br from-[#421272] via-[#1a0723] to-[#634277]" />
 
-            {/* Right Side - Content */}
-            <motion.div
-              initial={{ opacity: 0, x: 30 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.8, delay: 0.2 }}
-              className="space-y-6"
-            >
-              <div>
-                <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
-                  Discover how Crystal Clear can help you
-                </h1>
-                <Button
-                  onClick={() => scrollToSection("contact")}
-                  className="bg-gradient-to-r from-[#9630b7] to-[#cd507e] hover:from-[#8021d7] hover:to-[#b13f9e] text-white border-0"
-                >
-                  Get a Free Quote
-                </Button>
-              </div>
-
-              <div className="text-gray-600 text-sm">
-                <p className="mb-2">*Free trial eligibility determined on sign up.</p>
-                <a href="#full-site" className="text-[#9630b7] hover:text-[#cd507e] font-semibold transition-colors">
-                  Additional terms may apply
-                </a>
-              </div>
-            </motion.div>
-          </div>
-        </div>
-
-        {/* Tab Navigation */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.4 }}
-          className="border-b border-gray-200 mt-16 mb-12"
-        >
-          <div className="container mx-auto px-4">
-            <div className="flex gap-8">
-              <button className="pb-4 px-4 border-b-2 border-[#9630b7] text-gray-900 font-semibold hover:text-[#9630b7] transition-colors">
-                Premium Detailing
-              </button>
-              <button className="pb-4 px-4 text-gray-500 font-semibold hover:text-gray-900 transition-colors">
-                Corporate Packages
-              </button>
-            </div>
-          </div>
-        </motion.div>
-
-        {/* Features Section */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-          className="container mx-auto px-4"
-        >
-          <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-2">
-              Why choose Crystal Clear?
-            </h2>
-            <div className="w-16 h-1 bg-gradient-to-r from-[#9630b7] to-[#cd507e] mx-auto"></div>
-          </div>
-
-          <div className="grid md:grid-cols-4 gap-6">
-            {[
-              {
-                icon: "⚡",
-                title: "Professional Equipment",
-                description: "State-of-the-art detailing tools and technology",
-              },
-              {
-                icon: "🚗",
-                title: "Mobile Service",
-                description: "We come to you - no hassle, full convenience",
-              },
-              {
-                icon: "✨",
-                title: "Premium Products",
-                description: "Only the finest detailing products used",
-              },
-              {
-                icon: "✓",
-                title: "100% Guarantee",
-                description: "Satisfaction guaranteed or your money back",
-              },
-            ].map((feature, index) => (
+        {/* Animated stars */}
+        {(() => {
+          const rand = (n: number) => {
+            const x = Math.sin(n * 12.9898) * 43758.5453
+            return x - Math.floor(x)
+          }
+          return Array.from({ length: 20 }).map((_, i) => {
+            const left = `${rand(i) * 100}%`
+            const top = `${rand(i + 1) * 100}%`
+            const duration = 2 + rand(i + 2) * 2
+            const delay = rand(i + 3) * 2
+            return (
               <motion.div
-                key={index}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.6, delay: index * 0.1 }}
-                className="text-center"
-              >
-                <div className="text-4xl mb-4">{feature.icon}</div>
-                <h3 className="text-lg font-bold text-gray-900 mb-2">{feature.title}</h3>
-                <p className="text-gray-600 text-sm">{feature.description}</p>
-              </motion.div>
-            ))}
-          </div>
+                key={i}
+                className="absolute w-1 h-1 bg-[#ac73e2] rounded-full"
+                style={{ left, top }}
+                animate={{ opacity: [0.2, 1, 0.2], scale: [1, 1.5, 1] }}
+                transition={{ duration, repeat: Number.POSITIVE_INFINITY, delay }}
+              />
+            )
+          })
+        })()}
+
+        <motion.div className="container mx-auto px-4 text-center relative z-10" style={{ opacity, scale }}>
+          <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8 }}>
+            <Image
+              src="/logo.png"
+              alt="Crystal Clear Auto Detailing"
+              width={400}
+              height={400}
+              className="mx-auto mb-8 rounded-2xl shadow-2xl"
+            />
+          </motion.div>
+
+          <motion.h1
+            className="text-5xl md:text-7xl font-bold mb-6 bg-gradient-to-r from-[#9630b7] via-[#b13f9e] to-[#cd507e] bg-clip-text text-transparent"
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.2 }}
+          >
+            Pursuing More Leads
+          </motion.h1>
+
+          <motion.p
+            className="text-xl md:text-2xl mb-8 text-[#e6c0dc]"
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.4 }}
+          >
+            Premium Mobile Auto Detailing Services
+          </motion.p>
+
+          <motion.div
+            className="flex flex-wrap gap-4 justify-center"
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.6 }}
+          >
+            <Button
+              size="lg"
+              onClick={() => scrollToSection("services")}
+              className="bg-gradient-to-r from-[#9630b7] to-[#b13f9e] hover:from-[#8021d7] hover:to-[#cd507e] text-white border-0"
+            >
+              Our Services
+            </Button>
+            <Button
+              size="lg"
+              variant="outline"
+              onClick={() => scrollToSection("contact")}
+              className="border-[#ac73e2] text-[#ac73e2] hover:bg-[#ac73e2] hover:text-white"
+            >
+              Get a Quote
+            </Button>
+          </motion.div>
         </motion.div>
 
-        {/* View Full Website Section */}
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-          className="mt-16 pt-12 border-t border-gray-200"
-          id="full-site"
+          className="absolute bottom-10 left-1/2 -translate-x-1/2"
+          animate={{ y: [0, 10, 0] }}
+          transition={{ duration: 2, repeat: Number.POSITIVE_INFINITY }}
         >
-          <div className="container mx-auto px-4 text-center">
-            <p className="text-gray-600 mb-4">
-              Want to see more about our services, pricing, and gallery?
-            </p>
-            <Button
-              onClick={() => scrollToSection("services")}
-              variant="outline"
-              className="border-[#9630b7] text-[#9630b7] hover:bg-[#9630b7] hover:text-white"
-            >
-              Explore Full Website
-            </Button>
+          <div className="w-6 h-10 border-2 border-[#ac73e2] rounded-full flex items-start justify-center p-2">
+            <motion.div
+              className="w-1 h-2 bg-[#ac73e2] rounded-full"
+              animate={{ y: [0, 12, 0] }}
+              transition={{ duration: 2, repeat: Number.POSITIVE_INFINITY }}
+            />
           </div>
         </motion.div>
       </section>
