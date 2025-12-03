@@ -164,6 +164,236 @@ export default function CrystalClearLanding() {
             </p>
           </motion.div>
 
+          {/* Pricing Plans Section */}
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8, delay: 0.5 }}
+            className="w-full mb-16 border-t border-[#634277] pt-16"
+          >
+            <h2 className="text-4xl md:text-5xl font-bold text-white text-center mb-4">
+              Our Packages
+            </h2>
+            <p className="text-[#e6c0dc] text-lg text-center mb-12">
+              Choose the perfect detailing package for your vehicle
+            </p>
+
+            <div className="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+              {/* Basic Plan */}
+              <motion.div
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6, delay: 0.6 }}
+                className="relative"
+              >
+                <div className="bg-[#421272]/60 border-[#634277] border rounded-xl p-8 h-full">
+                  <h3 className="text-2xl font-bold text-white mb-3">Basic Detail</h3>
+                  <p className="text-[#e6c0dc] text-sm mb-4">Interior only</p>
+                  <div className="text-4xl font-bold text-[#ac73e2] mb-8">$150</div>
+                  <ul className="space-y-3 text-[#e6c0dc] text-sm">
+                    <li className="flex items-start gap-2">
+                      <span className="text-[#ac73e2] font-bold mt-1">•</span>
+                      <span>Interior vacuum</span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <span className="text-[#ac73e2] font-bold mt-1">•</span>
+                      <span>Window cleaning</span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <span className="text-[#ac73e2] font-bold mt-1">•</span>
+                      <span>Panel wipe down</span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <span className="text-[#ac73e2] font-bold mt-1">•</span>
+                      <span>Interior detailing</span>
+                    </li>
+                  </ul>
+                </div>
+              </motion.div>
+
+              {/* Premium Plan */}
+              <motion.div
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6, delay: 0.65 }}
+                className="relative"
+              >
+                <div className="absolute -top-4 left-1/2 -translate-x-1/2 bg-gradient-to-r from-[#9630b7] to-[#cd507e] text-white px-4 py-1 rounded-full text-sm font-semibold">
+                  Most Popular
+                </div>
+                <div className="bg-[#421272]/80 border-[#ac73e2] border-2 rounded-xl p-8 h-full">
+                  <h3 className="text-2xl font-bold text-white mb-3">Premium Detail</h3>
+                  <p className="text-[#e6c0dc] text-sm mb-4">Full inside and out</p>
+                  <div className="text-4xl font-bold text-[#ac73e2] mb-8">$250</div>
+                  <ul className="space-y-3 text-[#e6c0dc] text-sm">
+                    <li className="flex items-start gap-2">
+                      <span className="text-[#ac73e2] font-bold mt-1">•</span>
+                      <span>Everything in Basic</span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <span className="text-[#ac73e2] font-bold mt-1">•</span>
+                      <span>Exterior wash & wax</span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <span className="text-[#ac73e2] font-bold mt-1">•</span>
+                      <span>Interior deep clean</span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <span className="text-[#ac73e2] font-bold mt-1">•</span>
+                      <span>Paint sealant</span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <span className="text-[#ac73e2] font-bold mt-1">•</span>
+                      <span>Tire shine</span>
+                    </li>
+                  </ul>
+                </div>
+              </motion.div>
+
+              {/* Diamond Plan */}
+              <motion.div
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6, delay: 0.7 }}
+                className="relative"
+              >
+                <div className="bg-[#421272]/60 border-[#634277] border rounded-xl p-8 h-full">
+                  <h3 className="text-2xl font-bold text-white mb-3">Diamond Detail</h3>
+                  <p className="text-[#e6c0dc] text-sm mb-4">Paint Correction Detail</p>
+                  <div className="text-4xl font-bold text-[#ac73e2] mb-8">$350</div>
+                  <ul className="space-y-3 text-[#e6c0dc] text-sm">
+                    <li className="flex items-start gap-2">
+                      <span className="text-[#ac73e2] font-bold mt-1">•</span>
+                      <span>Everything in Premium</span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <span className="text-[#ac73e2] font-bold mt-1">•</span>
+                      <span>Clay bar</span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <span className="text-[#ac73e2] font-bold mt-1">•</span>
+                      <span>3 month sealant</span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <span className="text-[#ac73e2] font-bold mt-1">•</span>
+                      <span>Interior UV protectant</span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <span className="text-[#ac73e2] font-bold mt-1">•</span>
+                      <span>Leather conditioning</span>
+                    </li>
+                  </ul>
+                </div>
+              </motion.div>
+            </div>
+          </motion.div>
+
+          {/* Add-Ons Section */}
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8, delay: 0.5 }}
+            className="w-full mb-16 border-t border-[#634277] pt-16"
+          >
+            <h2 className="text-4xl md:text-5xl font-bold text-white text-center mb-4">
+              Add-Ons
+            </h2>
+            <p className="text-[#e6c0dc] text-lg text-center mb-12">
+              Enhance your package with premium add-on services
+            </p>
+
+            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-4 max-w-5xl mx-auto">
+              {/* 1 step paint correction */}
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: 0.6 }}
+                className="bg-[#421272]/40 border border-[#634277] rounded-lg p-4 hover:border-[#ac73e2] transition-all duration-300"
+              >
+                <h4 className="text-white font-semibold mb-2 text-sm">1 step paint correction</h4>
+                <p className="text-3xl font-bold text-[#ac73e2]">$150</p>
+              </motion.div>
+
+              {/* Headlight restoration */}
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: 0.63 }}
+                className="bg-[#421272]/40 border border-[#634277] rounded-lg p-4 hover:border-[#ac73e2] transition-all duration-300"
+              >
+                <h4 className="text-white font-semibold mb-2 text-sm">Headlight restoration</h4>
+                <p className="text-3xl font-bold text-[#ac73e2]">$50</p>
+              </motion.div>
+
+              {/* Pet hair removal */}
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: 0.66 }}
+                className="bg-[#421272]/40 border border-[#634277] rounded-lg p-4 hover:border-[#ac73e2] transition-all duration-300"
+              >
+                <h4 className="text-white font-semibold mb-2 text-sm">Pet hair removal</h4>
+                <p className="text-3xl font-bold text-[#ac73e2]">$25</p>
+              </motion.div>
+
+              {/* Claybar */}
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: 0.69 }}
+                className="bg-[#421272]/40 border border-[#634277] rounded-lg p-4 hover:border-[#ac73e2] transition-all duration-300"
+              >
+                <h4 className="text-white font-semibold mb-2 text-sm">Claybar</h4>
+                <p className="text-3xl font-bold text-[#ac73e2]">$50</p>
+              </motion.div>
+
+              {/* Engine bay cleaning */}
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: 0.72 }}
+                className="bg-[#421272]/40 border border-[#634277] rounded-lg p-4 hover:border-[#ac73e2] transition-all duration-300"
+              >
+                <h4 className="text-white font-semibold mb-2 text-sm">Engine bay cleaning</h4>
+                <p className="text-3xl font-bold text-[#ac73e2]">$50</p>
+              </motion.div>
+
+              {/* Stain removal */}
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: 0.75 }}
+                className="bg-[#421272]/40 border border-[#634277] rounded-lg p-4 hover:border-[#ac73e2] transition-all duration-300"
+              >
+                <h4 className="text-white font-semibold mb-2 text-sm">Stain removal</h4>
+                <p className="text-3xl font-bold text-[#ac73e2]">$50</p>
+              </motion.div>
+
+              {/* 3 year ceramic coating */}
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: 0.78 }}
+                className="bg-[#421272]/40 border border-[#634277] rounded-lg p-4 hover:border-[#ac73e2] transition-all duration-300"
+              >
+                <h4 className="text-white font-semibold mb-2 text-sm">3 year ceramic coating</h4>
+                <p className="text-3xl font-bold text-[#ac73e2]">$700</p>
+              </motion.div>
+            </div>
+          </motion.div>
+
           {/* Contact Section - Massive & Focused */}
           <motion.div
             initial={{ opacity: 0, y: 30 }}
