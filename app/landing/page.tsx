@@ -99,8 +99,8 @@ export default function CrystalClearLanding() {
           >
             <div className="relative aspect-video rounded-xl overflow-hidden shadow-2xl border border-[#634277] mb-12">
               <Image
-                src="https://images.pexels.com/photos/6872601/pexels-photo-6872601.jpeg"
-                alt="Professional car detailing service"
+                src="https://cdn.builder.io/api/v1/image/assets%2Feaa719c761d64fc58dbfe871f4fb5f8e%2Fb3e6a402926b4717ae7a1665e9e828c2?format=webp&width=800"
+                alt="Crystal Clear Auto Detailing - Orange Car"
                 fill
                 className="object-cover"
               />
